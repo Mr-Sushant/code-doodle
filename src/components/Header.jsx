@@ -25,6 +25,7 @@ const Header = () => {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
+          onClick={() => window.open('https://github.com/Mr-Sushant/code-doodle')}
         >
           <GitHubIcon />
         </IconButton>

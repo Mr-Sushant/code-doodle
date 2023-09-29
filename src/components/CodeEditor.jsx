@@ -26,7 +26,7 @@ const Container = styled(Box)`
 
 `;
 
-const CodeEditor = ({heading, icon, color, value, onChange}) => {
+const CodeEditor = ({heading, icon, color, value, onChange, defaultValue}) => {
   //const classes = useStyles();
   const handleChange = (value, event) => {
     onChange(value);
@@ -54,7 +54,7 @@ const CodeEditor = ({heading, icon, color, value, onChange}) => {
             {heading}
         </StyledBox>
       </Header>
-      <Editor theme='vs-dark' height="340px" language={heading} defaultValue="// some comment" value={value} onChange={handleChange} />
+      <Editor theme='vs-dark' height="340px" language={heading} value={value} onChange={handleChange} />
     </Container>
   )
 }

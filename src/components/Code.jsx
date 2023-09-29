@@ -15,9 +15,9 @@ const Code = () => {
   const {html, setHtml, css, setCss, js, setJs} = useContext(DataContext);
   return (
     <StyledBox>
-      <CodeEditor heading="html" icon="/" color="#FF3C41" value={html} onChange={setHtml}/>
-      <CodeEditor heading="css" icon="*" color="#0EBEFF" value={css} onChange={setCss}/>
-      <CodeEditor heading="javascript" icon="()" color="#FCD000" value={js} onChange={setJs}/>
+      <CodeEditor heading="html" icon="/" color="#FF3C41" value={html} onChange={setHtml} />
+      <CodeEditor heading="css" icon="*" color="#0EBEFF" value={css} onChange={setCss} />
+      <CodeEditor heading="javascript" icon="()" color="#FCD000" value={js} onChange={setJs} />
     </StyledBox>
   )
 }
