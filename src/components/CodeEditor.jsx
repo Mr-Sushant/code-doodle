@@ -1,14 +1,12 @@
 import React from 'react'
 import { Box, styled } from '@mui/material';
-import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
-
-
+import Editor from '@monaco-editor/react';
 
 const StyledBox = styled(Box)`
     background: #1d1e22;
     display: flex;
     padding: 9px 12px;
-
+    
 `;
 
 const Header = styled(Box)`
@@ -17,16 +15,30 @@ const Header = styled(Box)`
     color: #AAAEBC;
     justify-content: space-between;
     font-weight: 700;
+    padding:0 4px 4px;
 `;
 
-const Editor = () => {
+const Container = styled(Box)`
+  flex-grow: 1;
+  flex-basic: 0;
+  display: flex;
+  flex-direction: column;
+
+`;
+
+const CodeEditor = ({heading, icon, color, value, onChange}) => {
+  //const classes = useStyles();
+  const handleChange = (value, event) => {
+    onChange(value);
+  };
+
   return (
-    <Box>
+    <Container>
       <Header>
         <StyledBox>
             <Box component="span"
                 style={{
-                    background: "red",
+                    background: color,
                     height: 20,
                     width: 20,
                     display: "flex",
@@ -34,18 +46,17 @@ const Editor = () => {
                     borderRadius: 5,
                     marginRight: 5,
                     paddingBottom: 2,
-
+                    color: "#000"
                 }}
             >
-                /
+                {icon}
             </Box>
-            HTML
+            {heading}
         </StyledBox>
-        <CloseFullscreenIcon />
       </Header>
-      
-    </Box>
+      <Editor theme='vs-dark' height="340px" language={heading} defaultValue="// some comment" value={value} onChange={handleChange} />
+    </Container>
   )
 }
 
-export default Editor
+export default CodeEditor;
